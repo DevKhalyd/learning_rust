@@ -1,3 +1,7 @@
+# TODO
+
+End the new folders to understand new concepts.
+
 # Learning Rust
 
 Taking from the documentation, the [Rust Book](https://doc.rust-lang.org/book/).
