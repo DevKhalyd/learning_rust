@@ -11,8 +11,11 @@ Taking from the documentation, the [Rust Book](https://doc.rust-lang.org/book/).
 **Run the file**:
 
 Windows (Write the first letter + tab): 
-`.\file.exe`
+`.\file.exe` (Look the .exe)
 
+# Rust Online Compiler
+
+https://play.rust-lang.org/
 
 # Windows errors
 

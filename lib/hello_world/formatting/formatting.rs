@@ -36,6 +36,7 @@ impl Display for City {
 
         // `write!` is like `format!`, but it will write the formatted string
         // into a buffer (the first argument)
+        // The .3 in each {:} means that just show the first 3 decimal places
         write!(f, "{}: {:.3}°{} {:.3}°{}",
                self.name, self.lat.abs(), lat_c, self.lon.abs(), lon_c)
     }
@@ -48,7 +49,35 @@ struct Color {
     blue: u8,
 }
 
+impl Display for Color {
+
+
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        
+        // The problem basically is convert decimal to hexadecimal.
+        // Then concatenate the hexadecimal string with the string "0x"
+        // Ref: https://stackoverflow.com/a/25007469/10942018
+        let red_hex = format!("{:X}", self.red);
+        let green_hex = format!("{:X}", self.green);
+        let blue_hex= format!("{:X}", self.blue);
+
+        let red = if red_hex == "0" { "00" }  else { &red_hex };
+        let green = if green_hex == "0" { "00" } else { &green_hex };
+        let blue = if blue_hex == "0" { "00" } else { &blue_hex };
+
+        // You can pad with zeros to a width of 2 with :0>2.
+
+        let hex_number = format!("{:0>2}{:0>2}{:0>2}", red, green, blue);
+
+       write!(f,"RGB ({}, {}, {}) 0x{}",self.red,self.green,self.blue,hex_number)
+    }
+
+}
+
+
+
 fn main() {
+
     for city in [
         City { name: "Dublin", lat: 53.347778, lon: -6.259722 },
         City { name: "Oslo", lat: 59.95, lon: 10.75 },
@@ -62,11 +91,9 @@ fn main() {
         Color { red: 0, green: 0, blue: 0 },
     ].iter() {
         // Switch this to use {} once you've added an implementation
-        // for fmt::Display.
-        println!("{:?}", *color);
+        // for fmt::Display. Otherwise if the implementations is not set, 
+        // thorw an error
+        // println!("{:?}", *color); Print the default values: Color { red: 128, green: 255, blue: 90 }
+        println!("{}", *color);
     }
 }
-
-// TODO: Understand the problem and fix it.
-
-
