@@ -1,12 +1,10 @@
 /*
+Ref: https://doc.rust-lang.org/stable/rust-by-example/primitives/tuples.html
+
 A tuple is a collection of values of different types. Tuples are constructed using parentheses (), 
 and each tuple itself is a value with type signature (T1, T2, ...), where T1, T2 are the types of its members. 
 Functions can use tuples to return multiple values, as tuples can hold any number of values.
-
-
-
 */
-// TODO: Compile the errors
 
 // Tuples can be used as function arguments and as return values
 fn reverse(pair: (i32, bool)) -> (bool, i32) {
@@ -64,7 +62,7 @@ fn main() {
 }
 
 /*
-
+// TODO: Understand the problem
 Activity
 
 Recap: Add the fmt::Display trait to the Matrix struct 
@@ -89,8 +87,6 @@ Matrix:
 Transpose:
 ( 1.1 2.1 )
 ( 1.2 2.2 )
-
-
 */
 
 
