@@ -6,11 +6,14 @@ and each tuple itself is a value with type signature (T1, T2, ...), where T1, T2
 Functions can use tuples to return multiple values, as tuples can hold any number of values.
 */
 
+use std::fmt::{self, Formatter, Display};
+
 // Tuples can be used as function arguments and as return values
 fn reverse(pair: (i32, bool)) -> (bool, i32) {
     // `let` can be used to bind the members of a tuple to variables
     let (integer, boolean) = pair;
 
+    // Return the reversed tupple
     (boolean, integer)
 }
 
@@ -18,12 +21,29 @@ fn reverse(pair: (i32, bool)) -> (bool, i32) {
 #[derive(Debug)]
 struct Matrix(f32, f32, f32, f32);
 
+impl Display for Matrix {
+    // `f` is a buffer, and this method must write the formatted string into it
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+
+        // TODO: Use as example the formmatting file
+        
+        // let lat_c = if self.lat >= 0.0 { 'N' } else { 'S' };
+        // let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
+
+        // // `write!` is like `format!`, but it will write the formatted string
+        // // into a buffer (the first argument)
+        // // The .3 in each {:} means that just show the first 3 decimal places
+        // write!(f, "{}: {:.3}°{} {:.3}°{}",
+        //        self.name, self.lat.abs(), lat_c, self.lon.abs(), lon_c)
+    }
+}
+
 fn main() {
     // A tuple with a bunch of different types
     let long_tuple = (1u8, 2u16, 3u32, 4u64,
                       -1i8, -2i16, -3i32, -4i64,
                       0.1f32, 0.2f64,
-                      'a', true);
+                      'a', true,);
 
     // Values can be extracted from the tuple using tuple indexing
     println!("long tuple first value: {}", long_tuple.0);
@@ -56,14 +76,17 @@ fn main() {
     let (a, b, c, d) = tuple;
     println!("{:?}, {:?}, {:?}, {:?}", a, b, c, d);
 
+    // TODO: Activity 1. Print in the way {} 
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!("{:?}", matrix);
 
 }
 
 /*
-// TODO: Understand the problem
+
 Activity
+
+Activity one
 
 Recap: Add the fmt::Display trait to the Matrix struct 
 in the above example, so that if you switch from printing 
@@ -73,7 +96,12 @@ following output:
 ( 1.1 1.2 )
 ( 2.1 2.2 )
 
-Add a transpose function using the reverse function as a template, which accepts a matrix as an argument, and returns a matrix in which two elements have been swapped. 
+Activity 2.
+
+Add a transpose function using the reverse function as a template, 
+which accepts a matrix as an argument, and returns a matrix 
+in which two elements have been swapped. 
+
 For example:
 
 println!("Matrix:\n{}", matrix);

@@ -1,3 +1,7 @@
+# TODO
+
+End the tupples and understand the problem
+
 # Learning Rust
 
 Taking from the documentation, the [Rust Book](https://doc.rust-lang.org/book/).

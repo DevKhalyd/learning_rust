@@ -1,5 +1,4 @@
 /*
-
 We've seen that formatting is specified via a format string:
 
 format!("{}", foo) -> "3735928559"
