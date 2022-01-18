@@ -24,17 +24,8 @@ struct Matrix(f32, f32, f32, f32);
 impl Display for Matrix {
     // `f` is a buffer, and this method must write the formatted string into it
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-
-        // TODO: Use as example the formmatting file
-        
-        // let lat_c = if self.lat >= 0.0 { 'N' } else { 'S' };
-        // let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
-
-        // // `write!` is like `format!`, but it will write the formatted string
-        // // into a buffer (the first argument)
-        // // The .3 in each {:} means that just show the first 3 decimal places
-        // write!(f, "{}: {:.3}°{} {:.3}°{}",
-        //        self.name, self.lat.abs(), lat_c, self.lon.abs(), lon_c)
+        //write!(f,"")
+        write!(f,"( {} {} ) \n( {} {} )",self.0,self.1,self.2,self.3)
     }
 }
 
@@ -76,14 +67,16 @@ fn main() {
     let (a, b, c, d) = tuple;
     println!("{:?}, {:?}, {:?}, {:?}", a, b, c, d);
 
-    // TODO: Activity 1. Print in the way {} 
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!("{:?}", matrix);
+    println!("{}", matrix);
 
 }
 
 /*
 
+
+DONE
 Activity
 
 Activity one
